@@ -40,4 +40,8 @@ public class ProductRepository {
         }
         return null; // Or throw an exception
     }
+
+    public boolean deleteById(String id) {
+        return productData.removeIf(product -> product.getProductId().equals(id));
+    }
 }

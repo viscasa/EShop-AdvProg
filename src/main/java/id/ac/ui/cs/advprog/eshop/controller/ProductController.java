@@ -49,4 +49,10 @@ public class ProductController {
         service.update(product);  // This requires adding an `update` method in Service and Repository
         return "redirect:/product/list";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") String id) {
+        service.deleteById(id);
+        return "redirect:/product/list";
+    }
 }
