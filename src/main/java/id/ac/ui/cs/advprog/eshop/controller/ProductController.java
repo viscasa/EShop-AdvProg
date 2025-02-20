@@ -14,13 +14,13 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService service;
+    public ProductService service;
 
     @GetMapping("/create")
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product",product);
-        return "createProduct";
+        return "CreateProduct";
     }
 
     @PostMapping("/create")
@@ -33,14 +33,14 @@ public class ProductController {
     public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
-        return "productList";
+        return "ProductList";
     }
 
     @GetMapping("/edit/{id}")
     public String editProductPage(@PathVariable("id") String id, Model model) {
         Product product = service.findById(id); // You'll need `findById` in the service layer
         model.addAttribute("product", product);
-        return "editProduct"; // The name of the Thymeleaf template
+        return "EditProduct"; // The name of the Thymeleaf template
     }
 
     @PostMapping("/edit/{id}")
