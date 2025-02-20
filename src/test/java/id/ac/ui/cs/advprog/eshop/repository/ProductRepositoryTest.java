@@ -56,6 +56,12 @@ class ProductRepositoryTest {
         product2.setProductQuantity(50);
         productRepository.create(product2);
 
+        Product product3 = productRepository.findById(product1.getProductId()) ;
+        assertEquals(product1.getProductId(), product3.getProductId());
+        Product product4 = productRepository.findById(product2.getProductId()) ;
+        assertEquals(product2.getProductId(), product4.getProductId());
+        assertNull(productRepository.findById("asjkfsa"));
+
         Iterator<Product> productIterator = productRepository. findAll();
         assertTrue(productIterator.hasNext());
         Product savedProduct = productIterator.next();
@@ -73,16 +79,30 @@ class ProductRepositoryTest {
         existingProduct.setProductQuantity(50);
         productRepository.create(existingProduct);
 
+        Product existingProduct2 = new Product();
+        existingProduct2.setProductName("Original Product2");
+        existingProduct2.setProductQuantity(70);
+        productRepository.create(existingProduct2);
+
         Product updatedProduct = new Product();
         updatedProduct.setProductId(existingProduct.getProductId());
         updatedProduct.setProductName("Updated Product");
         updatedProduct.setProductQuantity(100);
 
+        Product updatedProduct2 = new Product();
+        updatedProduct2.setProductId(existingProduct2.getProductId());
+        updatedProduct2.setProductName("Updated Product2");
+        updatedProduct2.setProductQuantity(100);
+
         Product result = productRepository.update(updatedProduct);
+        Product result2 = productRepository.update(updatedProduct2);
 
         assertNotNull(result);
+        assertNotNull(result2);
         assertEquals("Updated Product", result.getProductName());
+        assertEquals("Updated Product2", result2.getProductName());
         assertEquals(100, result.getProductQuantity());
+        assertEquals(100, result2.getProductQuantity());
     }
 
     // Negative Test for Edit Product

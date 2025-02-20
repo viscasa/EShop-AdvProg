@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class EshopApplicationTests {
 
     @Test
-    void contextLoads() {
+    void testMainMethod() {
+        EshopApplication.main(new String[]{}); // Simply run main method
     }
 
 }

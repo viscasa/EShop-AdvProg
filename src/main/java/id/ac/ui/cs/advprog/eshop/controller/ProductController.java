@@ -14,7 +14,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService service;
+    public ProductService service;
 
     @GetMapping("/create")
     public String createProductPage(Model model) {
