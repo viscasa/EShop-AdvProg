@@ -35,7 +35,7 @@ class ProductManagementFunctionalTest {
     }
 
     @Test
-    void fullProductManagementFlow(ChromeDriver driver) throws Exception {
+    void fullProductManagementFlow(ChromeDriver driver) {
         // Step 1: Verify product list is empty
         driver.get(baseUrl + "/product/list");
         List<WebElement> deleteButtons = driver.findElements(By.cssSelector(".btn-danger"));

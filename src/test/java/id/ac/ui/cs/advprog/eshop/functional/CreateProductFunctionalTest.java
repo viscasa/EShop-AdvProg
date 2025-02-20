@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,7 +42,7 @@ class CreateProductFunctionalTest {
     }
 
     @Test
-    void createProduct_andVerifyInProductList(ChromeDriver driver) throws Exception {
+    void createProduct_andVerifyInProductList(ChromeDriver driver) {
         // Navigate to the "Create Product" page
         driver.get(baseUrl + "/product/create");
 

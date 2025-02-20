@@ -6,7 +6,6 @@ import org.junit.jupiter.api. Test;
 import org.junit.jupiter.api.extension. ExtendWith;
 import org.mockito. InjectMocks;
 import org.mockito.junit. jupiter. MockitoExtension;
-//import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Iterator;
 
@@ -19,7 +18,7 @@ class ProductRepositoryTest {
     ProductRepository productRepository;
 
     @BeforeEach
-    void setUp() {
+    void setUp() { // this method reserved for setUp before all the test
 
     }
 
