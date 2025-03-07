@@ -30,8 +30,8 @@ public class OrderServiceImplTest {
     void setUp() {
         List<Product> products = new ArrayList<>();
         Product product1 = new Product();
-        product1. setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        product1. setProductName ("Sampo Cap Bambang");
+        product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product1.setProductName ("Sampo Cap Bambang");
         product1.setProductQuantity(2);
         products.add(product1);
 
@@ -111,7 +111,8 @@ public class OrderServiceImplTest {
     @Test
     void testFindAllByAuthorIfAuthorCorrect() {
         Order order = orders.get(1);
-        doReturn(order).when(orderRepository).findAllByAuthor(order.getAuthor());
+
+        doReturn(orders).when(orderRepository).findAllByAuthor(order.getAuthor());
 
         List<Order> results = orderService.findAllByAuthor(order.getAuthor());
         for (Order result : results) {
