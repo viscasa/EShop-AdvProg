@@ -5,6 +5,7 @@ import id.ac.ui.cs.advprog.eshop.model.Payment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ public class PaymentRepositoryTest {
     @BeforeEach
     void setUp() {
         paymentRepository = new PaymentRepository();
+        payments = new ArrayList<>();
 
         String id = "iniuuid1";
         String method = "Payment by Voucher Code";
