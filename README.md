@@ -39,7 +39,7 @@ Untuk pembuatan unit test baru, saya baru menyadari bisa juga membuat sebuah fun
 
 </details>
 
-<details open>
+<details>
 <summary>Modul 3</summary>
 
 ## Reflection 1
@@ -70,4 +70,25 @@ Untuk pembuatan unit test baru, saya baru menyadari bisa juga membuat sebuah fun
     4. Tanpa ISP, masalahnya adalah jika interface terlalu besar, maka kelas yang mengimplementasikannya harus menerapkan metode yang tidak dibutuhkan. Contohnya jika CarService memiliki metode calculatePrice(), tetapi CarServiceImpl tidak membutuhkan metode ini, maka CarServiceImpl tetap harus mengimplementasikannya.
     5. Tanpa DIP, masalahnya adalah jika kelas tingkat tinggi bergantung langsung pada kelas tingkat rendah, maka perubahan kecil di satu bagian bisa menyebabkan perubahan besar di tempat lain. Contohnya adalah jika CarController langsung menggunakan CarServiceImpl, maka sulit untuk mengganti CarServiceImpl dengan versi tiruan (mock) saat pengujian.
 
+</details>
+
+<details open>
+<summary>Modul 4</summary>
+
+## Reflection 1
+
+1) Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+
+   - Secara umum, TDD flow ini sudah membantu dalam memastikan bahwa fitur pembayaran berjalan sesuai spesifikasi yang diharapkan. Dengan menulis unit test sebelum implementasi, saya dapat memahami batasan dan kebutuhan fitur lebih baik. 
+   - Pengujian ini sudah mencakup beberapa kasus kesalahan, seperti validasi voucher code dan perubahan status pembayaran.
+   - Dengan mengikuti TDD, saya dapat mendesain Payment dengan pendekatan yang terstruktur.
+   - Untuk ke depannya, saya akan lebih memerhatikan lagi semua edge case untuk dijadikan unit testnya.
+
+2) You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+   - Pengujian berjalan cukup cepat karena hanya menguji logika bisnis tanpa mengakses database eksternal.
+   - Sebagian besar pengujian sudah terisolasi dengan baik menggunakan Mockito.
+   - Pengujian dapat dijalankan berulang kali tanpa ketergantungan pada state eksternal, karena menggunakan mock data.
+   - Pengujian menggunakan assertion (assertEquals, assertThrows, dll.), yang memastikan bahwa hasilnya valid secara otomatis.
+   - Sebagian besar pengujian dibuat sebelum kelas asli dibuat, sesuai dengan metode TDD.
+   - Kesimpulannya, pengujian ini sebagian besar mengikuti prinsip F.I.R.S.T., tetapi ada beberapa area perbaikan, terutama dalam cakupan pengujian untuk edge case dan validasi lebih lanjut.
 </details>
