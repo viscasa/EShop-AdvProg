@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
 @Repository
 public class PaymentRepository {
     private List<Payment> paymentData = new ArrayList<>();
-    @Getter
     private Map<Payment,Order> orderPaymentsMap = new HashMap<>();
 
     public Payment save(Payment payment) {
