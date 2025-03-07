@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -8,6 +9,21 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaymentTest {
+
+    @Test
+    void testPaymentCreationMethodInvalid() {
+        String id = "iniuuid1";
+        String method = "HAHA";
+        Map<String, String> paymentData = new HashMap<>();
+        paymentData.put("voucherCode", "ESHOP1234ABC5678");
+
+        Payment payment = new Payment(id, method, paymentData);
+
+        assertEquals(id, payment.getId());
+        assertEquals(method, payment.getMethod());
+        assertEquals(paymentData, payment.getPaymentData());
+        assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
+    }
     @Test
     void testPaymentCreationMethodVoucherSuccess() {
         String id = "iniuuid1";
