@@ -2,6 +2,7 @@ package id.ac.ui.cs.advprog.eshop.repository;
 
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Payment;
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ import java.util.Map;
 @Repository
 public class PaymentRepository {
     private List<Payment> paymentData = new ArrayList<>();
-    private Map<Order,Payment> orderPaymentsMap = new HashMap<>();
+    @Getter
+    private Map<Payment,Order> orderPaymentsMap = new HashMap<>();
 
     public Payment save(Payment payment) {
         int i=0;
@@ -41,7 +43,7 @@ public class PaymentRepository {
         if (orderPaymentsMap.containsKey(order)) {
             return false;
         }
-        orderPaymentsMap.put(order,payment);
+        orderPaymentsMap.put(payment,order);
         return true;
     }
 }
